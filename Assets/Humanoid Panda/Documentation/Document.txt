@@ -1,0 +1,24 @@
+DOCUMENTATION
+    3D Humanoid Panda
+A low-poly Humanoid Panda Character with handpainted high quality texture.This character use AR,VR,Game eingne and any different projects.The Character humanoid mecanim system rig.Fully supports mecanim humanoid animation system.I hope you like this game ready asset.
+Technical Details:
+Model-Low poly,Clean topology and completely UVunwrapped model.
+FBX version is 2016 but older versions can be provided on request.
+Polycount Panda_01-Virtex:3923,faces:3918,Tris:7776
+                 Panda_02-Virtex:4279,faces:4230,Tris:8400
+                 Panda_03-Virtex:4279,faces:4230,Tris:8400
+Textures- 3 different colour textures,Panda Textures_01,Panda Textures_02 and Panda Textures_03 .character is using 2048*2048 diffuse textures and one material for the character.Textures format PNG.
+Rig-humanoid mecanim system rig.Fully supports mecanim humanoid animation system.
+Animation-27 Root Motion animation.
+Walk forward,walk back,walk left,walk right,idle_01,Idle_02,Idle_03,Attack_01,Attack_02,Attack_03,Dying,Dying_02,Stand_Up,Sitting,Run Forward,Standard Run,Run back,Run Left,Run Right,Running Slide,Talking,Jump,Jump to run,Waving Gesture,Looking around,Dancie_01,Dance_02.
+
+
+Note:Unity Version 2019.2 or higher.Feel free to contact me anything about this project.
+Contact:
+Website-https://www.artstation.com/natural2020
+Mail id-natural.creative2020@gmail.com
+Animation Link-https:https://youtu.be/mLc9yqu20a0
+
+
+
+
