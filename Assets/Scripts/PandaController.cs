@@ -269,7 +269,7 @@ public class PandaController : MonoBehaviour
             //voiceController.GetSpeech();
 
 
-            Invoke("SwitchState",5);
+            Invoke("SwitchState",6);
         }
 
     }

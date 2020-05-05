@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9f11a9ed457f9430e9817403afce0433
   - enabled: 0
-    path: Assets/Scenes/1.unity
-    guid: c71edc72a689146c8bebfaa9e82b9811
-  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/main.unity
     guid: a360cce98780f457fa6d37b93712e08e
+  - enabled: 1
+    path: Assets/Scenes/main-forest.unity
+    guid: 1576d5b0cade04c5d90fdd994ce9d035
   - enabled: 1
     path: Assets/HelloAR/Scenes/HelloAR.unity
     guid: e6a6fa04348cb45c9b0221eb19c946da
