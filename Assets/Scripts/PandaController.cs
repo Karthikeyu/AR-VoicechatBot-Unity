@@ -51,18 +51,18 @@ public class PandaController : MonoBehaviour
            
         }
 #endif
+        //voiceTest = new VoiceTest();
+        voiceC = this.transform.GetChild(2).gameObject;
+        voiceTest = voiceC.GetComponent<VoiceTest>();
+        VoiceController voiceController = voiceC.GetComponent<VoiceController>();
+        voiceTest.InitPluin();
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
-
         pandaBot = new pandaAIMLBot();
         pandaBot.Start();
         speechController = new myvoiceController();
-        //voiceController = GetComponent<VoiceController>();
-        //voiceTest = GetComponent<VoiceTest>();
         var aSources = GetComponents<AudioSource>();
         userAudioSource = aSources[0];
         pandaOutputAudioSource = aSources[1];
-        voiceC = this.transform.GetChild(2).gameObject;
-        voiceTest = voiceC.GetComponent<VoiceTest>();
         originalPosition = gameObject.transform.position;
         originalRotationValue = transform.rotation;
         speechController.audioSource = pandaOutputAudioSource;
@@ -71,12 +71,20 @@ public class PandaController : MonoBehaviour
         speechController.animator = animator;
         robotOutput.text = "Hi, I am panda bot. How can I help you?";
         Debug.Log(robotOutput.text);
-        StartCoroutine(speechController.sendRequestToRSSAndPlayAudio(robotOutput.text));
+        if(voiceTest.isIntialised())
+        {
+            voiceTest.TTS(robotOutput.text);
+            robotOutput.text = "true";
+        }else
+        {
+            StartCoroutine(speechController.sendRequestToRSSAndPlayAudio(robotOutput.text));
+        }
         animator.Play("talking");
         animator.Play("waving");
         clipSampleData = new float[1024];
         userAudioSource.clip = null;
-         Idle();
+        //Invoke("voiceTest.TTS(robotOutput.text)", 1);
+        Idle();
   
 
     }
@@ -126,7 +134,8 @@ public class PandaController : MonoBehaviour
     public void Update()
     {
 
-        if (playerState == PlayerState.Idle && !speechController.activeRequest && !pandaOutputAudioSource.isPlaying)
+        // if (playerState == PlayerState.Idle && !speechController.activeRequest && !pandaOutputAudioSource.isPlaying)
+        if (playerState == PlayerState.Idle && !voiceTest.isSpeaking())
         {
             //Debug.Log("Robot is not playing audio");
 
@@ -168,7 +177,7 @@ public class PandaController : MonoBehaviour
         //if(clipLoudness > 0.005f)
         // sDebug.Log("Clip Loudness = " + clipLoudness);
 
-        return clipLoudness > 0.0025f;
+        return clipLoudness > 0.0005f;
     }
 
     private void SwitchState()
@@ -233,9 +242,12 @@ public class PandaController : MonoBehaviour
                 a[0] = char.ToUpper(a[0]);
                 string userAudioResponse = new string(a);
                 string answer = pandaBot.getResponse(userAudioResponse);
-                StartCoroutine(speechController.sendRequestToRSSAndPlayAudio(answer));
+                voiceTest.TTS(answer);
+                //StartCoroutine(speechController.sendRequestToRSSAndPlayAudio(answer));
                 robotOutput.text = answer;
                 SwitchState();
+
+                //Invoke("SwitchState", 4);
             }
             else
             {
@@ -269,7 +281,7 @@ public class PandaController : MonoBehaviour
             //voiceController.GetSpeech();
 
 
-            Invoke("SwitchState",6);
+            Invoke("SwitchState",5);
         }
 
     }

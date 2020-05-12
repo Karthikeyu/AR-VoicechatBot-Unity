@@ -9,6 +9,7 @@ public class VoiceTest : MonoBehaviour {
     //public Text uiText;
     public string myResponse;
 
+
      VoiceController voiceController;
 
     public void GetSpeech() {
@@ -16,9 +17,21 @@ public class VoiceTest : MonoBehaviour {
         voiceController.GetSpeech();
     }
 
-    void Start() {
-        myResponse = null;
+
+    public void InitPluin()
+    {
+      
         voiceController = GetComponent<VoiceController>();
+        // voiceController = new VoiceController();
+        myResponse = null;
+        voiceController.InitPlugin();
+    }
+
+
+    public void TTS(string text)
+    {
+
+        voiceController.TTS(text, 0.5f);
     }
 
     void OnEnable() {
@@ -32,4 +45,17 @@ public class VoiceTest : MonoBehaviour {
     void OnVoiceResult(string text) {
         myResponse = text;
     }
+
+    public bool isSpeaking()
+    {
+        return voiceController.isSpeaking();
+    }
+
+    public bool isIntialised()
+    {
+        bool a = voiceController.isIntialised();
+        return a;
+
+    }
+
 }
