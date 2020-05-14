@@ -73,9 +73,11 @@ public class PandaController : MonoBehaviour
         Debug.Log(robotOutput.text);
         if(voiceTest.isIntialised())
         {
+            //StartCoroutine(voiceTest.TTS(robotOutput.text));
             voiceTest.TTS(robotOutput.text);
-            robotOutput.text = "true";
-        }else
+
+        }
+        else
         {
             StartCoroutine(speechController.sendRequestToRSSAndPlayAudio(robotOutput.text));
         }
@@ -242,7 +244,9 @@ public class PandaController : MonoBehaviour
                 a[0] = char.ToUpper(a[0]);
                 string userAudioResponse = new string(a);
                 string answer = pandaBot.getResponse(userAudioResponse);
+                animator.Play("talking");
                 voiceTest.TTS(answer);
+                //StartCoroutine(voiceTest.TTS(answer));
                 //StartCoroutine(speechController.sendRequestToRSSAndPlayAudio(answer));
                 robotOutput.text = answer;
                 SwitchState();
