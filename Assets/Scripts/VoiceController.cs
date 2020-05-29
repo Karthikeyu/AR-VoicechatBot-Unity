@@ -77,7 +77,10 @@ public class VoiceController : MonoBehaviour {
 
     public void TTS(string text, float pitch)
     {
-        TTSplugin.Call("SpeakTTS", "US", text, pitch, 1.0f);
+        activity.Call("runOnUiThread", new AndroidJavaRunnable(() => {
+            TTSplugin.Call("SpeakTTS", "US", text, pitch, 1.0f);
+        }));
+        
     }
 
     public bool isSpeaking()

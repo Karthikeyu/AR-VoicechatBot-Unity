@@ -32,7 +32,7 @@ public class VoiceTest : MonoBehaviour {
     public  IEnumerator TTS(string text)
     {
 
-        voiceController.TTS(text, 0.4f);
+        voiceController.TTS(text, 1.0f);
         return null;
     }
 

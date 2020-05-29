@@ -70,10 +70,10 @@ public class pandaAIMLBot : MonoBehaviour
 		Application.Quit();
 	}
 
-	public void quit()
+	public void saveBrain()
 	{
 		bot.SaveBrain();
-		Application.Quit();
+		//Application.Quit();
 	}
 
 	public string getResponse(string text)

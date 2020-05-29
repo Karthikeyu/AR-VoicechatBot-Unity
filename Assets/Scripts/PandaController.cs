@@ -86,7 +86,7 @@ public class PandaController : MonoBehaviour
         clipSampleData = new float[1024];
         userAudioSource.clip = null;
         //Invoke("voiceTest.TTS(robotOutput.text)", 1);
-        Idle();
+        Invoke("Idle",1);
   
 
     }
@@ -154,7 +154,7 @@ public class PandaController : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape))
         {
 
-            quit();
+            saveB();
         }
 
 
@@ -179,7 +179,7 @@ public class PandaController : MonoBehaviour
         //if(clipLoudness > 0.005f)
         // sDebug.Log("Clip Loudness = " + clipLoudness);
 
-        return clipLoudness > 0.0005f;
+        return clipLoudness > 0.0008f;
     }
 
     private void SwitchState()
@@ -290,11 +290,18 @@ public class PandaController : MonoBehaviour
 
     }
 
-    public void quit()
+
+    public void slipOff()
+    {
+        animator.Play("slipOff");
+    }
+
+
+    public void saveB()
     {
         userAudioSource.Stop();
         pandaOutputAudioSource.Stop();
-        pandaBot.quit();
+        pandaBot.saveBrain();
     }
 
 }
