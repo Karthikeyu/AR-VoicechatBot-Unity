@@ -5,3 +5,4 @@ Hi. This a project for a humanoid voice chat bot andiod application that can int
 
 ### Demo:
 https://www.youtube.com/watch?v=fjsZoudiZyk&t=1s
+https://drive.google.com/file/d/1DGpody2OmwbBL10V8YaqpB2KsONJOaTE/view?usp=sharing
